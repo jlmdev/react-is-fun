@@ -4,10 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+var style = {
+  backgroundColor: 'orange',
+  color: 'white',
+  fontFamily: 'Arial'
+}
+
+const title = React.createElement(
+  'ul',
+  {id: 'title', className: 'header', style: style},
+  React.createElement(
+    'li',
+    {},
+    'item on our list'
+  )
+)
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  title,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
