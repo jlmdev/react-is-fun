@@ -1,50 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-let skiData = {
-  total: 50,
-  powder: 20,
-  backcountry: 10,
-  goal: 100
-}
+let bookList = [
+  {"title": "The Sun Also Rises", "author": "Ernest Hemmingway", "pages": 260},
+  {"title": "Go the F**k to Sleep", "author": "Your Mom", "pages": 20},
+  {"title": "Dune", "author": "Frank Herbert", "pages": 360}
+]
 
-const getPercent = decimal => {
-  return decimal * 100 + '%'
-}
-const calcGoalProgress = (total, goal) => {
-  return getPercent(total / goal)
-}
-
-const SkiDayCounter = ({total, powder, backcountry, goal}) => {
+const Book =({title, author, pages}) => {
   return (
     <section>
-      <div>
-        <p>Total Days: {total}</p>
-      </div>
-      <div>
-        <p>Powder Days: {powder}</p>
-      </div>
-      <div>
-        <p>Backcountry Days: {backcountry}</p>
-      </div>
-      <div>
-        <p>Goal Progress: {calcGoalProgress(total, goal)}</p>
-      </div>
+      <h2>{title}</h2>
+      <p>by: {author}</p>
+      <p>Pages: {pages}</p>
     </section>
   )
 }
 
+const Library = ({books}) => {
+  return (
+    <div>
+      {books.map(
+        (book, i) => <Book 
+        key={i}
+        title={book.title}
+        author={book.author}
+        pages={book.pages}
+      />
+      )}
+    </div>
+  )
+}
+
+      
+
 
 render(
-  <SkiDayCounter 
-    total={skiData.total}
-    powder={skiData.powder}
-    backcountry={skiData.backcountry}
-    goal={skiData.goal}
-  />,
+  <Library books={bookList}/>,
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>,
