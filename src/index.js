@@ -4,24 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-var style = {
-  backgroundColor: 'orange',
-  color: 'white',
-  fontFamily: 'Arial'
+let skiData = {
+  total: 50,
+  powder: 20,
+  backcountry: 10,
+  goal: 100
 }
 
-const title = React.createElement(
-  'ul',
-  {id: 'title', className: 'header', style: style},
-  React.createElement(
-    'li',
-    {},
-    'item on our list'
-  )
-)
+class SkiDayCounter extends React.Component {
+  render() {
+    return (
+      <section>
+        Ski Days
+      </section>
+    )
+  }
+}
+
 
 ReactDOM.render(
-  title,
+  <SkiDayCounter />,
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>,
